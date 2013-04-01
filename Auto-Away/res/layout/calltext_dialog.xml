@@ -1,0 +1,60 @@
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_root"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+    
+	<RadioGroup
+	    android:id="@+id/callText_Radio_Group"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content">
+	    
+		<RadioButton
+		    android:id="@+id/callText_Radio_1"
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content"
+		    android:text="@string/pref_call_text_type_1" />
+		
+		<ImageView
+		    xmlns:android="http://schemas.android.com/apk/res/android"
+		    android:src="@android:drawable/divider_horizontal_dark"
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content"
+		    android:scaleType="fitXY"
+		    android:paddingTop="5dp"
+		    android:paddingBottom="5dp" />
+		
+		<RadioButton
+		    android:id="@+id/callText_Radio_2"
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content"
+		    android:text="@string/pref_call_text_type_2" />
+		
+		<ImageView
+		    xmlns:android="http://schemas.android.com/apk/res/android"
+		    android:src="@android:drawable/divider_horizontal_dark"
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content"
+		    android:scaleType="fitXY"
+		    android:paddingTop="5dp"
+		    android:paddingBottom="5dp" />
+		
+		<RadioButton
+		    android:id="@+id/callText_Radio_3"
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content"
+		    android:text="@string/pref_call_text_type_3" />
+		
+	</RadioGroup>
+	
+	<ImageView
+	    xmlns:android="http://schemas.android.com/apk/res/android"
+	    android:src="@android:drawable/divider_horizontal_dark"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:scaleType="fitXY"
+	    android:paddingTop="2dp"
+	    android:paddingBottom="2dp" />
+
+</LinearLayout>

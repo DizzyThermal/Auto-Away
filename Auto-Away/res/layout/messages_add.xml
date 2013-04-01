@@ -1,0 +1,50 @@
+<RelativeLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_root"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:padding="10dp">
+    
+	<TextView
+		android:id="@+id/dialog_messagesTitle_add"
+		android:text="@string/prompt_message_title_title"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content" />
+		
+	<EditText
+		android:id="@+id/dialog_messagesTitleEdit_add"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:layout_below="@+id/dialog_messagesTitle_add" />	
+		
+	<TextView
+		android:id="@+id/dialog_messagesContent_add"
+		android:text="@string/prompt_message_title_content"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:layout_below="@+id/dialog_messagesTitleEdit_add" />
+
+	<EditText
+		android:id="@+id/dialog_messagesContentEdit_add"
+		android:singleLine="true"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:layout_below="@+id/dialog_messagesContent_add" />
+		
+	<Button
+		android:id="@+id/dialog_messagesButtonPositive_add"
+		android:text="@string/menu_add"
+		android:layout_width="100sp"
+		android:layout_height="wrap_content"
+		android:layout_below="@+id/dialog_messagesContentEdit_add"
+		android:layout_toLeftOf="@+id/dialog_messagesButtonNegative_add" />
+		
+	<Button
+		android:id="@+id/dialog_messagesButtonNegative_add"
+		android:text="@string/menu_cancel"
+		android:layout_width="100sp"
+		android:layout_height="wrap_content"
+		android:layout_below="@+id/dialog_messagesContentEdit_add"
+		android:layout_alignParentRight="true" />
+
+</RelativeLayout>

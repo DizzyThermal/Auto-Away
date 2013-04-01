@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<!-- Application Strings -->
+	<string name="app_name">Auto-Away</string>
+	<string name="app_version">1.1.6</string>
+
+	<!-- Activity Titles -->
+	<string name="activity_log_title">Response Log</string>
+	<string name="activity_messages_title">Away Messages</string>
+	<string name="activity_blacklist_title">Blacklist</string>
+	<string name="activity_whitelist_title">Whitelist</string>
+	<string name="activity_scheduling_title">Away Scheduling</string>
+	
+	<!-- Preference Categories -->
+	<string name="pref_category_general">General Preferences</string>
+	<string name="pref_category_logging">Log Preferences</string>
+	<string name="pref_category_response">Response Preferences</string>
+	<string name="pref_category_backupAndRestore">Backup and Restore</string>
+	<string name="pref_category_about">About</string>
+	
+	 <!-- Service -->
+	<string name="pref_service_title">Enable Auto-Away</string>
+	<string name="pref_service_summary">Starts the Auto-Away service</string>
+	
+	<!-- Silent -->
+	<string name="pref_silent_title">Silence on Start</string>
+	<string name="pref_silent_summary">Silence all sounds except media &amp; alarms on start</string>
+
+	<!--  Call/Text Preference -->
+	<string name="pref_call_text_title">Auto-Respond to</string>
+	<string name="pref_call_text_summary">Select what Auto-Away responds to</string>
+	<string name="pref_call_text_type_1">Calls and Texts</string>
+	<string name="pref_call_text_type_2">Calls</string>
+	<string name="pref_call_text_type_3">Texts</string>
+	
+	<!-- Log Responses -->
+	<string name="pref_log_title">Log Responses</string>
+	<string name="pref_log_summary">Record recipients and times of auto-responses</string>
+	
+	<string name="pref_log_activity_title">View Log</string>
+	
+	<!-- Message Select -->
+	<string name="pref_message_title">Away Messages</string> 
+	<string name="pref_message_summary">Select which message to send out when a text is received.\nHit MENU to edit messages</string>
+	
+	<!-- Filtering -->
+	<string name="pref_filtering_title">Recipient Filtering</string>
+	<string name="pref_filtering_summary">Blacklisting denies listed numbers from auto-responses.\nWhitelisting allows only the listed numbers for auto-responses.</string>
+	
+	<string name="pref_filter_type_1">None</string>
+	<string name="pref_filter_type_2">Just Contacts</string>
+	<string name="pref_filter_type_3">Blacklist</string>
+	<string name="pref_filter_type_4">Whitelist</string>
+	
+	<!-- Inform -->
+	<string name="pref_inform_title">Inform Recipient</string>
+	<string name="pref_inform_summary">Adds the [Auto-Away]: prefix to your custom messages</string>
+	
+	<!-- Response Delay -->
+	<string name="pref_delay_title">Response Delay</string>
+	<string name="pref_delay_summary">Delay duration for auto-responses</string>
+		
+	<string name="pref_delay_type_1">None</string>
+	<string name="pref_delay_type_2">15 seconds</string>
+	<string name="pref_delay_type_3">30 seconds</string>
+	<string name="pref_delay_type_4">1 minute</string>
+	<string name="pref_delay_type_5">2 minutes</string>
+	<string name="pref_delay_type_6">5 minutes</string>
+	
+	<!-- Repeat -->
+	<string name="pref_repeat_title">Repeat Responses</string>
+	<string name="pref_repeat_summary">Repeat away message multiple times, to the same recipient, while running</string>
+	
+	<!-- Backup -->
+	<string name="pref_backup_title">Backup</string>
+	<string name="pref_backup_summary">Backup Auto-Away\'s preferences, messages, and filters to the SD Card</string>
+	
+	<!-- Restore -->
+	<string name="pref_restore_title">Restore</string>
+	<string name="pref_restore_summary">Restore previously backed up information from the SD Card</string>
+	
+	<!-- About -->
+	<string name="pref_about_title">Auto-Away</string>
+	
+	<!-- Menu Options -->
+	<string name="menu_add">Add</string>
+	<string name="menu_addToFilter">Add to Filter</string>
+	<string name="menu_cancel">Cancel</string>
+	<string name="menu_clear">Clear</string>
+	<string name="menu_close">Close</string>
+	<string name="menu_edit">Edit</string>
+	<string name="menu_export">Export to Excel</string>
+	<string name="menu_no">No</string>
+	<string name="menu_remove">Remove</string>
+	<string name="menu_remove_all">Remove All</string>
+	<string name="menu_save">Save</string>
+	<string name="menu_yes">Yes</string>
+	
+	<string name="menu_main_messages">Edit Away Messages</string>
+	<string name="menu_main_filtering">Recipient Filtering</string>
+	<string name="menu_main_scheduling">Away Scheduling</string>
+	
+	<string name="menu_messages_add">Add Away Message</string>
+	<string name="menu_filter_addFromContacts">Add from Contacts</string>
+	<string name="menu_filter_addCustom">Add Number</string>
+	<string name="menu_schedules_add">Add Schedule</string>
+
+	<!-- Prompts -->
+	<string name="prompt_log_title">Logging is Disabled!</string>
+	<string name="prompt_log_content">Do you want to enable logging?</string>
+	
+	<string name="prompt_log_dialog_name">Name:</string>
+	<string name="prompt_log_dialog_number">Number:</string>
+	<string name="prompt_log_dialog_date">Date:</string>
+	<string name="prompt_log_dialog_time">Time:</string>
+	<string name="prompt_log_dialog_type">Type:</string>
+	
+	<string name="prompt_log_dialog_type_call">Phone Call</string>
+	<string name="prompt_log_dialog_type_text">Text Message</string>
+	
+	<string name="prompt_message_title">New Message</string>
+	<string name="prompt_message_title_title">Title</string>
+	<string name="prompt_message_title_content">Message</string>
+
+	<string name="prompt_message_saved">was successfully saved!</string>
+	
+	<string name="prompt_filtering_title">Recipient Filtering is off!</string>
+	<string name="prompt_filtering_empty">Warning: Filtering is ON, but the filtering list is empty!</string>
+
+	<string name="prompt_error_message_exists">A message with that title exists!</string>
+	<string name="prompt_error_message_blank">Title and message cannot be blank!</string>
+	<string name="prompt_error_filter_number">Contact does not have a phone number.</string>
+	<string name="prompt_error_filter_exists">Contact already exists in the list.</string>
+	<string name="prompt_error_filter_blank">Name and number cannot be blank!</string>
+	<string name="prompt_error_filter_present">is already on the</string>
+	<string name="prompt_error_sdcard_mounted">The SD Card is mounted and unaccessible</string>
+	<string name="prompt_error_sdcard_readOnly">The SD Card is read only, unable to write</string>
+	<string name="prompt_error_sdcard_restore">No backup present to restore</string>
+	
+	<string name="prompt_sdcard_backup_successful">Application data backed up successfully!</string>
+	<string name="prompt_sdcard_restore_successful">Application data restored successfully!</string>
+	
+	<string name="prompt_filter_title">New Contact</string>
+	<string name="prompt_filter_title_name">Name</string>
+	<string name="prompt_filter_title_number">Number</string>
+	
+	<string name="prompt_filter_add">Please choose a filter</string>
+
+	<string name="prompt_added">Added Successfully!</string>
+	
+	<string name="prompt_export_noLogs">There are no logs to export!</string>
+	<string name="prompt_export_success">Exported successfully to:</string>
+
+	<!-- Miscellaneous -->
+	<string name="default_message_title">Default Message</string>
+	<string name="default_message_content">Hey, I\'m busy, I\'ll text you later</string>
+	
+	<string name="notification_ticker_start">Auto-Away Service now running</string>
+	<string name="notification_ticker_replied">Auto replied to</string>
+	<string name="notification_content">Auto-Away is currently running</string>
+	
+	<string name="about_body">Auto-Away was written by two strongly motivated Juniors, Stephen Diniz and Andrew Simmons, who are currently attending school for their bachelors degrees in Electrical and Computer Engineering at The University of Massachusetts: Dartmouth.\n\nThis Dynamic Duo does not shy away from any challenge and they strive for perfection.</string>
+</resources>

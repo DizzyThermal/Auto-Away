@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<!-- Application Strings -->
+	<string name="app_name">Auto-Away</string>
+	<string name="app_version">1.1.6</string>
+
+	<!-- Activity Titles -->
+	<string name="activity_log_title">Journal des Réponses</string>
+	<string name="activity_messages_title">Messages d\'absence</string>
+	<string name="activity_blacklist_title">Blacklist</string>
+	<string name="activity_whitelist_title">Whitelist</string>
+	<string name="activity_scheduling_title">Loin de Planification</string>
+	
+	<!-- Preference Categories -->
+	<string name="pref_category_general">Préférences Générales</string>
+	<string name="pref_category_logging">Préférences du Journal</string>
+	<string name="pref_category_response">Préférences de Réponses</string>
+	<string name="pref_category_backupAndRestore">Sauvegarde et restauration</string>
+	<string name="pref_category_about">A propos du Auto-Away</string>
+	
+	 <!-- Service -->
+	<string name="pref_service_title">Activer Auto-Away</string>
+	<string name="pref_service_summary">Démarre le service Auto-Away</string>
+	
+	<!-- Silent -->
+	<string name="pref_silent_title">Silence au Démarrage</string>
+	<string name="pref_silent_summary">Coupe tous les sons au démarrage exceptés les alarmes et les médias</string>
+
+	<!--  Call/Text Preference -->
+	<string name="pref_call_text_title">Répondre Automatiquement à</string>
+	<string name="pref_call_text_summary">Sélectionnez ce que Auto-Away réagit à</string>
+	<string name="pref_call_text_type_1">Appels Téléphoniques et Messages Texte</string>
+	<string name="pref_call_text_type_2">Appels Téléphoniques</string>
+	<string name="pref_call_text_type_3">Message Texte</string>
+	
+	<!-- Log Responses -->
+	<string name="pref_log_title">Enregistrer les Réponses</string>
+	<string name="pref_log_summary">Enregistre les destinataires et les horaires des réponses-auto</string>
+
+	<string name="pref_log_activity_title">Voir le Journal</string>
+	
+	<!-- Message Select -->
+	<string name="pref_message_title">Messages d\'absence</string>
+	<string name="pref_message_summary">Choisissez quel message envoyer lorsque vous recevez un SMS.\nCliquer sur la touche MENU pour éditer les messages</string>
+	
+	<!-- Filtering -->
+	<string name="pref_filtering_title">Filtrage des Destinataires</string>
+	<string name="pref_filtering_summary">Mettre en Blacklist interdit aux numéros listés de recevoir des réponses-auto.\nWhitelist permet au numéros listés de recevoir des réponses-auto.</string>
+	
+	<string name="pref_filter_type_1">Aucun</string>
+	<string name="pref_filter_type_2">Contacts uniquement</string>
+	<string name="pref_filter_type_3">Blacklist</string>
+	<string name="pref_filter_type_4">Whitelist</string>
+	
+	<!-- Inform -->
+	<string name="pref_inform_title">Informer le Destinataire</string>
+	<string name="pref_inform_summary">Ajouter le préfixe [Auto-Away]: à vos messages personnalisés</string>
+	
+	<!-- Response Delay -->
+	<string name="pref_delay_title">Délai de Réponse</string>
+	<string name="pref_delay_summary">Durée du délai de réponse-auto</string>
+		
+	<string name="pref_delay_type_1">Aucun</string>
+	<string name="pref_delay_type_2">15 secondes</string>
+	<string name="pref_delay_type_3">30 secondes</string>
+	<string name="pref_delay_type_4">1 minute</string>
+	<string name="pref_delay_type_5">2 minutes</string>
+	<string name="pref_delay_type_6">5 minutes</string>
+	
+	<!-- Repeat -->
+	<string name="pref_repeat_title">Répéter les Réponses</string>
+	<string name="pref_repeat_summary">Répète le message d\'absence plusieurs fois, au même destinataire, pendant que l\'application est lancé</string>
+	
+	<!-- Backup -->
+	<string name="pref_backup_title">Exporter</string>
+	<string name="pref_backup_summary">Exporter les paramètres du programme, des messages, et des filtres pour le SD Card</string>
+	
+	<!-- Restore -->
+	<string name="pref_restore_title">Restaurer</string>
+	<string name="pref_restore_summary">Restaurer préalablement sauvegardée informations de la SD Card</string>
+	
+	<!-- About -->
+	<string name="pref_about_title">Auto-Away</string>
+	
+	<!-- Menu Option -->
+	<string name="menu_add">Ajouter</string>
+	<string name="menu_addToFilter">Ajouter \à Filtrer</string>
+	<string name="menu_cancel">Annuler</string>
+	<string name="menu_clear">Vider</string>
+	<string name="menu_close">Fermer</string>
+	<string name="menu_edit">Editer</string>
+	<string name="menu_export">Exporter vers Excel</string>
+	<string name="menu_no">Non</string>
+	<string name="menu_remove">Supprimer</string>
+	<string name="menu_remove_all">Tout supprimer</string>
+	<string name="menu_save">Sauvegarder</string>
+	<string name="menu_yes">Oui</string>
+	
+	<string name="menu_main_messages">Editer les Messages d\'absence</string>
+	<string name="menu_main_filtering">Filtrage des Destinataires</string>
+	<string name="menu_main_scheduling">Loin de Planification</string>
+
+	<string name="menu_messages_add">Ajouter un Message d\'absence</string>
+	<string name="menu_filter_addFromContacts">Ajouter depuis les Contacts</string>
+	<string name="menu_filter_addCustom">Ajouter un numéro</string>
+	<string name="menu_schedules_add">Ajouter Programmer</string>
+	
+	<!-- Prompts -->
+	<string name="prompt_log_title">La Journalisation est désactivée!</string>
+	<string name="prompt_log_content">Voulez-vous activer la journalisation?</string>
+	
+	<string name="prompt_log_dialog_name">Nom:</string>
+	<string name="prompt_log_dialog_number">Nombre:</string>
+	<string name="prompt_log_dialog_date">Date:</string>
+	<string name="prompt_log_dialog_time">Temps:</string>
+	<string name="prompt_log_dialog_type">Tapez:</string>
+	
+	<string name="prompt_log_dialog_type_call">Appels Téléphoniques</string>
+	<string name="prompt_log_dialog_type_text">Messages Texte</string>
+	
+	<string name="prompt_message_title">Nouveau message</string>
+	<string name="prompt_message_title_title">Titre</string>
+	<string name="prompt_message_title_content">Message</string>
+
+	<string name="prompt_message_saved">a été sauvegardé avec succès!</string>
+	
+	<string name="prompt_filtering_title">Le filtrage des destinataire est désactivé!</string>
+	<string name="prompt_filtering_empty">Attention: Filtrage est activé, mais la liste de filtrage est vide!</string>
+	
+	<string name="prompt_error_message_exists">Il y a déjà un message avec ce titre!</string>
+	<string name="prompt_error_message_blank">Le titre et le message ne peuvent être vides!</string>
+	<string name="prompt_error_filter_number">Le contact n\'a pas de numéro de téléphone.</string>
+	<string name="prompt_error_filter_exists">Le contact est déjà dans la liste.</string>
+	<string name="prompt_error_filter_blank">Le nom et le numéro ne peuvent être vide!</string>
+	<string name="prompt_error_filter_present">est déjà sur la</string>
+	<string name="prompt_error_sdcard_mounted">La SD Card est inaccessible</string>
+	<string name="prompt_error_sdcard_readOnly">La SD Card est en lecture seule, ne peut pas écrire</string>
+	<string name="prompt_error_sdcard_restore">Pas de données sauvegardées à restaurer</string>
+	
+	<string name="prompt_sdcard_backup_successful">Les données d\'application a été correctement enregistré!</string>
+	<string name="prompt_sdcard_restore_successful">Les données d\'application a été correctement restaurée!</string>
+	
+	<string name="prompt_filter_title">Nouveau Contact</string>
+	<string name="prompt_filter_title_name">Nom</string>
+	<string name="prompt_filter_title_number">Numéro</string>
+	
+	<string name="prompt_filter_add">S\'il vous pla\ît choisir un filtre</string>
+	
+	<string name="prompt_added">Ajouté avec succès!</string>
+	
+	<string name="prompt_export_noLogs">Il n\'y a pas d\'archives \à l\'exportation!</string>
+	<string name="prompt_export_success">Exporté avec succès aux:</string>
+
+	<!-- Miscellaneous -->
+	<string name="default_message_title">Message par Défaut</string>
+	<string name="default_message_content">Salut, je suis occupé, je t\'enverrai un message plus tard</string>
+	
+	<string name="notification_ticker_start">Le Service Auto-Away est désormais lancé</string>
+	<string name="notification_ticker_replied">Répondu automatiquement à</string>
+	<string name="notification_content">Auto-Away est actuellement lancé</string>
+
+	<string name="about_body">Auto-Away a \ét\é \écrit par deux Juniors fortement motiv\és, Stephen Diniz et Andrew Simmons, qui fr\équentent actuellement une \école pour leurs baccalaur\éats en g\énie \électrique et informatique \à l\'Universit\é du Massachusetts: Dartmouth.\n\nCe duo dynamique n\'a pas peur de toute contestation, et ils tendent \à la perfection.</string>
+</resources>

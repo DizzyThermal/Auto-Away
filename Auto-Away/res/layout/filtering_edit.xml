@@ -1,0 +1,51 @@
+<RelativeLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_root"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:padding="10dp">
+    
+	<TextView
+		android:id="@+id/dialog_filteringName_edit"
+		android:text="@string/prompt_filter_title_name"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content" />
+		
+	<EditText
+		android:id="@+id/dialog_filteringNameEdit_edit"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:layout_below="@+id/dialog_filteringName_edit" />	
+		
+	<TextView
+		android:id="@+id/dialog_filteringNumber_edit"
+		android:text="@string/prompt_filter_title_number"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:layout_below="@+id/dialog_filteringNameEdit_edit" />
+
+	<EditText
+		android:id="@+id/dialog_filteringNumberEdit_edit"
+		android:inputType="number"
+		android:singleLine="true"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:layout_below="@+id/dialog_filteringNumber_edit" />
+		
+	<Button
+		android:id="@+id/dialog_filteringButtonPositive_edit"
+		android:text="@string/menu_save"
+		android:layout_width="100sp"
+		android:layout_height="wrap_content"
+		android:layout_below="@+id/dialog_filteringNumberEdit_edit"
+		android:layout_toLeftOf="@+id/dialog_filteringButtonNegative_edit" />
+		
+	<Button
+		android:id="@+id/dialog_filteringButtonNegative_edit"
+		android:text="@string/menu_cancel"
+		android:layout_width="100sp"
+		android:layout_height="wrap_content"
+		android:layout_below="@+id/dialog_filteringNumberEdit_edit"
+		android:layout_alignParentRight="true" />
+
+</RelativeLayout>

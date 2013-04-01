@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+	<item
+		android:id="@+id/filtering_contact_removeAll"
+		android:title="@string/menu_remove_all" />
+
+	<item
+		android:id="@+id/filtering_contact_addCustom"
+		android:title="@string/menu_filter_addCustom" />
+	
+    <item
+    	android:id="@+id/filtering_contact_add"
+    	android:title="@string/menu_filter_addFromContacts" />
+
+</menu>

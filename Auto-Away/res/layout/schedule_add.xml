@@ -1,0 +1,46 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:orientation="vertical">
+    
+	<TextView
+		android:id="@+id/dialog_scheduleTitle_add"
+		android:text="Title-CHANGE"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content" />
+		
+	<EditText
+		android:id="@+id/dialog_scheduleTitleEdit_add"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content" />	
+
+	<TimePicker
+		android:id="@+id/dialog_scheduleStart_add"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content" />
+	
+	<TimePicker
+		android:id="@+id/dialog_scheduleStop_add"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content" />
+	
+	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:orientation="horizontal">
+
+		<Button
+			android:id="@+id/dialog_scheduleButtonPositive_add"
+			android:text="@string/menu_add"
+			android:layout_width="100sp"
+			android:layout_height="wrap_content" />
+			
+		<Button
+			android:id="@+id/dialog_scheduleButtonNegative_add"
+			android:text="@string/menu_cancel"
+			android:layout_width="100sp"
+			android:layout_height="wrap_content" />
+
+	</LinearLayout>
+
+</LinearLayout>
