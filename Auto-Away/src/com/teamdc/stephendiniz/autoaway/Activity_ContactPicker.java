@@ -11,12 +11,14 @@ import java.util.ArrayList;
 import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.app.ListActivity;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.provider.Contacts;
 import android.provider.ContactsContract;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -53,6 +55,8 @@ public class Activity_ContactPicker extends ListActivity
 	{
 		super.onCreate(SavedInstanceState);
 
+		getActionBar().setDisplayHomeAsUpEnabled(true);
+		
 		r = getResources();
 		Cursor cursor = getContentResolver().query(Contacts.CONTENT_URI, null, null, null, null);
 
@@ -287,6 +291,24 @@ public class Activity_ContactPicker extends ListActivity
 				return i;
 		
 		return -1;
+	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item)
+	{
+		switch(item.getItemId())
+		{
+			case android.R.id.home:
+	            Intent parentActivityIntent = new Intent(this, Activity_Filtering.class);
+	            parentActivityIntent.addFlags(
+	                    Intent.FLAG_ACTIVITY_CLEAR_TOP |
+	                    Intent.FLAG_ACTIVITY_NEW_TASK);
+	            startActivity(parentActivityIntent);
+	            finish();
+	        return true;
+		}
+		
+		return false;
 	}
 	
 	public int getFilterStatus()						{ return filterStatus; 					}

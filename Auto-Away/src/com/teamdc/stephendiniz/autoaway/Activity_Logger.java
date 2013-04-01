@@ -10,8 +10,10 @@ import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.Calendar;
 
+import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.app.ListActivity;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Environment;
@@ -48,10 +50,12 @@ public class Activity_Logger extends ListActivity
 	ArrayList<LogEntry> entries = new ArrayList<LogEntry>();
 	String[] names;
 	
+	@SuppressLint("NewApi")
 	public void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
 
+		getActionBar().setDisplayHomeAsUpEnabled(true);
 		populateLogList();
 		this.setListAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, names));
 		
@@ -565,5 +569,23 @@ public class Activity_Logger extends ListActivity
 		catch (java.io.IOException exception) { Log.e(TAG, "IOException caused by trying to access " + file, exception); };
 		
 		return noun + " " + getResources().getString(R.string.prompt_added);
+	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item)
+	{
+		switch(item.getItemId())
+		{
+			case android.R.id.home:
+	            Intent parentActivityIntent = new Intent(this, Activity_Main.class);
+	            parentActivityIntent.addFlags(
+	                    Intent.FLAG_ACTIVITY_CLEAR_TOP |
+	                    Intent.FLAG_ACTIVITY_NEW_TASK);
+	            startActivity(parentActivityIntent);
+	            finish();
+	        return true;
+		}
+		
+		return false;
 	}
 }

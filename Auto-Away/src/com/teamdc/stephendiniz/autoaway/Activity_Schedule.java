@@ -2,8 +2,10 @@ package com.teamdc.stephendiniz.autoaway;
 
 import java.util.ArrayList;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Dialog;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.Menu;
@@ -40,10 +42,12 @@ public class Activity_Schedule extends Activity
 	static final int CONTEXT_MENU_EDIT		= 0;
 	static final int CONTEXT_MENU_REMOVE	= 1;
 	
+	@SuppressLint("NewApi")
 	public void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
 		
+		getActionBar().setDisplayHomeAsUpEnabled(true);
 //		messagesExist(schedulesFile);
 		TextView newText = new TextView(this);
 		newText.setText("Hi");
@@ -107,6 +111,14 @@ public class Activity_Schedule extends Activity
 				
 				dialog.show();
 			break;
+			case android.R.id.home:
+	            Intent parentActivityIntent = new Intent(this, Activity_Main.class);
+	            parentActivityIntent.addFlags(
+	                    Intent.FLAG_ACTIVITY_CLEAR_TOP |
+	                    Intent.FLAG_ACTIVITY_NEW_TASK);
+	            startActivity(parentActivityIntent);
+	            finish();
+	        return true;
 		}
 		
 		return true;

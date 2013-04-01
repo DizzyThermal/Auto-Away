@@ -8,6 +8,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 
+import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.app.ListActivity;
 import android.content.Intent;
@@ -58,10 +59,13 @@ public class Activity_Filtering extends ListActivity
 	static final int CONTEXT_MENU_EDIT		= 0;
 	static final int CONTEXT_MENU_REMOVE	= 1;
 	
+	@SuppressLint("NewApi")
 	public void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
 
+		getActionBar().setDisplayHomeAsUpEnabled(true);
+		
 		isRunning = false;
 		
 		infoBundle = getIntent().getExtras();
@@ -175,6 +179,14 @@ public class Activity_Filtering extends ListActivity
 				saveNumbers(getFile());
 				startActivity(getIntent()); finish();
 			break;
+			case android.R.id.home:
+	            Intent parentActivityIntent = new Intent(this, Activity_Main.class);
+	            parentActivityIntent.addFlags(
+	                    Intent.FLAG_ACTIVITY_CLEAR_TOP |
+	                    Intent.FLAG_ACTIVITY_NEW_TASK);
+	            startActivity(parentActivityIntent);
+	            finish();
+	        return true;
 		}
 		
 		return true;

@@ -2,7 +2,7 @@
 <resources>
 	<!-- Application Strings -->
 	<string name="app_name">Auto-Away</string>
-	<string name="app_version">1.2.0</string>
+	<string name="app_version">1.2.1</string>
     
 	<!-- Activity Titles -->
 	<string name="activity_log_title">Journal des Réponses</string>

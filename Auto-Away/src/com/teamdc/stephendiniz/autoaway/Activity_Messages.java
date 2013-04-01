@@ -1,9 +1,5 @@
 package com.teamdc.stephendiniz.autoaway;
 
-import com.teamdc.stephendiniz.autoaway.R;
-import com.teamdc.stephendiniz.autoaway.classes.MessageListArrayAdapter;
-import com.teamdc.stephendiniz.autoaway.classes.Message;
-
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
@@ -12,8 +8,10 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 
+import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.app.ListActivity;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.util.Log;
@@ -27,6 +25,9 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.teamdc.stephendiniz.autoaway.classes.Message;
+import com.teamdc.stephendiniz.autoaway.classes.MessageListArrayAdapter;
 
 public class Activity_Messages extends ListActivity
 {
@@ -50,10 +51,12 @@ public class Activity_Messages extends ListActivity
 	static final int CONTEXT_MENU_EDIT		= 0;
 	static final int CONTEXT_MENU_REMOVE	= 1;
 	
+	@SuppressLint("NewApi")
 	public void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
 		
+		getActionBar().setDisplayHomeAsUpEnabled(true);
 		messagesExist(messagesFile);
 		
 		MessageListArrayAdapter adapter = new MessageListArrayAdapter(this, sTitle, sContent);
@@ -135,6 +138,14 @@ public class Activity_Messages extends ListActivity
 				
 				dialog.show();
 			break;
+			case android.R.id.home:
+	            Intent parentActivityIntent = new Intent(this, Activity_Main.class);
+	            parentActivityIntent.addFlags(
+	                    Intent.FLAG_ACTIVITY_CLEAR_TOP |
+	                    Intent.FLAG_ACTIVITY_NEW_TASK);
+	            startActivity(parentActivityIntent);
+	            finish();
+	       return true;
 		}
 		
 		return true;
