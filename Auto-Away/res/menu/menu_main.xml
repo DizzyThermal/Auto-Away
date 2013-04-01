@@ -9,8 +9,8 @@
     	android:id="@+id/menu_filtering"
     	android:title="@string/menu_main_filtering" />
 	
-	<item
+	<!-- <item
 	    android:id="@+id/menu_scheduling"
-	    android:title="@string/menu_main_scheduling" />
+	    android:title="@string/menu_main_scheduling" /> -->
 
 </menu>

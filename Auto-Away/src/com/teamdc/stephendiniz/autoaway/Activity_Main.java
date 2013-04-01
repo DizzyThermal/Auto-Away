@@ -254,8 +254,7 @@ public class Activity_Main extends PreferenceActivity implements OnPreferenceCha
 		{
 			menu.getItem(MENU_ITEM_MESSAGES).setEnabled(false);
 			menu.getItem(MENU_ITEM_FILTER).setEnabled(false);
-			menu.getItem(MENU_ITEM_SCHEDULE).setEnabled(false);
-			
+			//menu.getItem(MENU_ITEM_SCHEDULE).setEnabled(false);
 		}
 		else if(!getServiceStatus())
 		{
@@ -266,7 +265,7 @@ public class Activity_Main extends PreferenceActivity implements OnPreferenceCha
 			else
 				menu.getItem(MENU_ITEM_FILTER).setEnabled(true);
 			
-			menu.getItem(MENU_ITEM_SCHEDULE).setEnabled(true);
+			//menu.getItem(MENU_ITEM_SCHEDULE).setEnabled(true);
 		}
 		
 		return true;
@@ -300,10 +299,10 @@ public class Activity_Main extends PreferenceActivity implements OnPreferenceCha
 					break;
 				}
 			break;
-			case R.id.menu_scheduling:
-				Intent schedule = new Intent(this, Activity_Schedule.class);
-				startActivity(schedule);
-			break;
+			//case R.id.menu_scheduling:
+			//	Intent schedule = new Intent(this, Activity_Schedule.class);
+			//	startActivity(schedule);
+			//break;
 		}
 		
 		return true;
