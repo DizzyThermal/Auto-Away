@@ -159,5 +159,6 @@
 	<string name="notification_ticker_replied">Répondu automatiquement à</string>
 	<string name="notification_content">Auto-Away est actuellement lancé</string>
 
-	<string name="about_body">Auto-Away a \ét\é \écrit par deux Juniors fortement motiv\és, Stephen Diniz et Andrew Simmons, qui fr\équentent actuellement une \école pour leurs baccalaur\éats en g\énie \électrique et informatique \à l\'Universit\é du Massachusetts: Dartmouth.\n\nCe duo dynamique n\'a pas peur de toute contestation, et ils tendent \à la perfection.</string>
+	<string name="error_no_service">Echec d\'envoi de réponse automatique en raison de Pas de service!</string>
+	<string name="error_radio_off">Echec d\'envoi de réponse automatique parce que la radio est éteint!</string>
 </resources>

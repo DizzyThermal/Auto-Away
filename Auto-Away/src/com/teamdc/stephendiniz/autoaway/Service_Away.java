@@ -71,6 +71,8 @@ public class Service_Away extends Service
 
 	private String 	name;
 	
+	private int noServiceResendAttempts = 0;
+	
 	// Global Objects
 	private PowerManager pm;
 	private PowerManager.WakeLock wakeLock;
@@ -179,13 +181,20 @@ public class Service_Away extends Service
                     break;
                     case SmsManager.RESULT_ERROR_NO_SERVICE:
                     	Log.e(TAG, "Text did NOT send (NO_SERVICE)");
-                    	Log.i(TAG, "Attempting to resend");
-                    	sendSms();
+                    	if(noServiceResendAttempts > 5)
+                    	{
+                    		Log.i(TAG, "Attempting resend: " + (noServiceResendAttempts++));
+                    		sendSms();
+                    	}
+                    	else
+                    	{
+                    		createNotificationFromString(getResources().getString(R.string.error_no_service));
+                    		noServiceResendAttempts = 0;
+                    	}
                     break;
                     case SmsManager.RESULT_ERROR_RADIO_OFF:
                     	Log.e(TAG, "Text did NOT send (RADIO_OFF)");
-                    	Log.i(TAG, "Attempting to resend");
-                    	sendSms();
+                    	createNotificationFromString(getResources().getString(R.string.error_radio_off));
                     break;
                 }
             }
@@ -558,6 +567,24 @@ public class Service_Away extends Service
 		nManager.notify(NOTIFICATION_ID, notification);
 
 		setNotifyCount(getNotifyCount() + 1);
+	}
+	
+	@SuppressLint("NewApi")
+	private void createNotificationFromString(String message)
+	{
+		NotificationManager nManager = (NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
+		Notification notification;
+
+		// Service started, first notification
+		notification = new Notification(R.drawable.notification_icon, message, System.currentTimeMillis());
+		notification.setLatestEventInfo(this, getResources().getString(R.string.app_name), getMessageContent(false), PendingIntent.getActivity(this, 0, new Intent(this, Activity_Main.class), 0));
+
+		Log.i(TAG, "Notification Created");
+
+		notification.flags |= Notification.FLAG_ONGOING_EVENT;
+		notification.flags |= Notification.FLAG_NO_CLEAR;
+		startForeground(NOTIFICATION_ID + 1, notification);
+		nManager.notify(NOTIFICATION_ID + 1, notification);
 	}
 	
 	private String hyphenate(String number)

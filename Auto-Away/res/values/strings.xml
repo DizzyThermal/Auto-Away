@@ -159,5 +159,6 @@
 	<string name="notification_ticker_replied">Auto replied to</string>
 	<string name="notification_content">Auto-Away is currently running</string>
 	
-	<string name="about_body">Auto-Away was written by two strongly motivated Juniors, Stephen Diniz and Andrew Simmons, who are currently attending school for their bachelors degrees in Electrical and Computer Engineering at The University of Massachusetts: Dartmouth.\n\nThis Dynamic Duo does not shy away from any challenge and they strive for perfection.</string>
+	<string name="error_no_service">Failed to send Auto-Response because of No Service!</string>
+	<string name="error_radio_off">Failed to send Auto-Response because phone radio is off!</string>
 </resources>

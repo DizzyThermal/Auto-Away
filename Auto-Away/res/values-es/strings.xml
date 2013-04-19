@@ -159,5 +159,6 @@
 	<string name="notification_ticker_replied">Respondió de forma automática a</string>
 	<string name="notification_content">Auto-Away se está ejecutando actualmente</string>
 
-	<string name="about_body">Auto-Away fue escrito por dos Juniors muy motivado, Stephen Diniz y Andrew Simmons, quien asiste a la escuela para sus licenciaturas en Ingeniería Eléctrica y Computación de la Universidad de Massachusetts: Dartmouth. Este dúo dinámico no se asusta de cualquier reto y se esfuerzan por la perfección.</string>
+	<string name="error_no_service">No se pudo enviar respuesta automática a causa de No Service!</string>
+	<string name="error_radio_off">No se pudo enviar respuesta automática porque la radio está apagado!</string>
 </resources>
