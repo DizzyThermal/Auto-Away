@@ -55,7 +55,9 @@ public class Activity_Logger extends ListActivity
 	{
 		super.onCreate(savedInstanceState);
 
-		getActionBar().setDisplayHomeAsUpEnabled(true);
+		if (android.os.Build.VERSION.SDK_INT >= 11)
+			getActionBar().setDisplayHomeAsUpEnabled(true);
+		
 		populateLogList();
 		this.setListAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, names));
 		

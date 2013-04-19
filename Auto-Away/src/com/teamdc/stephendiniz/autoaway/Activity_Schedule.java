@@ -47,7 +47,9 @@ public class Activity_Schedule extends Activity
 	{
 		super.onCreate(savedInstanceState);
 		
-		getActionBar().setDisplayHomeAsUpEnabled(true);
+		if (android.os.Build.VERSION.SDK_INT >= 11)
+			getActionBar().setDisplayHomeAsUpEnabled(true);
+		
 //		messagesExist(schedulesFile);
 		TextView newText = new TextView(this);
 		newText.setText("Hi");

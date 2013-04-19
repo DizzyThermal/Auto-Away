@@ -56,7 +56,9 @@ public class Activity_Messages extends ListActivity
 	{
 		super.onCreate(savedInstanceState);
 		
-		getActionBar().setDisplayHomeAsUpEnabled(true);
+		if (android.os.Build.VERSION.SDK_INT >= 11)
+			getActionBar().setDisplayHomeAsUpEnabled(true);
+		
 		messagesExist(messagesFile);
 		
 		MessageListArrayAdapter adapter = new MessageListArrayAdapter(this, sTitle, sContent);

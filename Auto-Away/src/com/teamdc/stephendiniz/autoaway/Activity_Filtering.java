@@ -64,7 +64,8 @@ public class Activity_Filtering extends ListActivity
 	{
 		super.onCreate(savedInstanceState);
 
-		getActionBar().setDisplayHomeAsUpEnabled(true);
+		if (android.os.Build.VERSION.SDK_INT >= 11)
+			getActionBar().setDisplayHomeAsUpEnabled(true);
 		
 		isRunning = false;
 		

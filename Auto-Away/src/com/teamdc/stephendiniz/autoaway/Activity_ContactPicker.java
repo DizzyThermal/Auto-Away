@@ -55,7 +55,8 @@ public class Activity_ContactPicker extends ListActivity
 	{
 		super.onCreate(SavedInstanceState);
 
-		getActionBar().setDisplayHomeAsUpEnabled(true);
+		if (android.os.Build.VERSION.SDK_INT >= 11)
+			getActionBar().setDisplayHomeAsUpEnabled(true);
 		
 		r = getResources();
 		Cursor cursor = getContentResolver().query(Contacts.CONTENT_URI, null, null, null, null);
