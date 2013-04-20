@@ -2,7 +2,7 @@
 <resources>
 	<!-- Application Strings -->
 	<string name="app_name">Auto-Away</string>
-	<string name="app_version">1.2.2</string>
+	<string name="app_version">1.2.3</string>
     
 	<!-- Activity Titles -->
 	<string name="activity_log_title">Journal des Réponses</string>
@@ -51,6 +51,9 @@
 	<string name="pref_filter_type_2">Contacts uniquement</string>
 	<string name="pref_filter_type_3">Blacklist</string>
 	<string name="pref_filter_type_4">Whitelist</string>
+	
+	<string name="pref_contacts_title">Contacts</string>
+	<string name="pref_contacts_multiple">Numéros Plusieurs</string>
 	
 	<!-- Inform -->
 	<string name="pref_inform_title">Informer le Destinataire</string>

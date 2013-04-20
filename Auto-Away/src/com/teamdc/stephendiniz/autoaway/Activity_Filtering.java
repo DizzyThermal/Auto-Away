@@ -389,6 +389,7 @@ public class Activity_Filtering extends ListActivity
 	
 	public String hyphenate(String number)
 	{
+		number = number.replaceAll("[^\\d]", "");
 		if (number.length() == 10)
 			return number.substring(0,3) + "-" + number.substring(3,6) + "-" + number.substring(6,10);
 		

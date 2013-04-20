@@ -96,7 +96,7 @@ public class Activity_Main extends PreferenceActivity implements OnPreferenceCha
 	SharedPreferences.Editor editor;
 
 	static final int LOG_DIALOG_ID = 0;
-	static final int NONE_DIALOG_ID = 1;
+	static final int FILTERING_DIALOG_ID = 1;
 	
 	static final int FILTER_MENU_OFF		= 0;
 	static final int FILTER_MENU_CONTACTS   = 1;
@@ -127,6 +127,7 @@ public class Activity_Main extends PreferenceActivity implements OnPreferenceCha
 		logPreference 		= (Preference)findPreference(LOG_ACT_PREF);
 			logPreference.setOnPreferenceClickListener(this);
 		logCheckBox 		= (CheckBoxPreference)findPreference(LOG_PREF);
+			logCheckBox.setOnPreferenceClickListener(this);
 		
 		messageListPref 	= (ListPreference)findPreference(MESSAGE_PREF);
 		filteringListPref	= (ListPreference)findPreference(FILTER_PREF);
@@ -162,6 +163,7 @@ public class Activity_Main extends PreferenceActivity implements OnPreferenceCha
 		if(getServiceStatus())
 			setPreferenceStatus(false);	// Disable Preference Changing if Service is Running
 
+		logPreference.setEnabled(prefs.getBoolean(LOG_PREF, true));
 		aboutPreference.setSummary(" v" + r.getString(R.string.app_version));
 		
 		if(!prefs.getBoolean(BUCHECK_PREF, false))
@@ -189,12 +191,31 @@ public class Activity_Main extends PreferenceActivity implements OnPreferenceCha
 		{
 			Toast eToast = Toast.makeText(this, backupInformation(), Toast.LENGTH_SHORT);
 			eToast.show();
+			
+			return true;
 		}
 		else if(p.getKey().equals(RESTORE_PREF))
 		{
 			Toast eToast = Toast.makeText(this, restoreInformation(), Toast.LENGTH_SHORT);
 			eToast.show();
 			finish();startActivity(getIntent());
+			
+			return true;
+		}
+		else if(p.getKey().equals(LOG_PREF))
+		{
+			if(getLogStatus())
+			{
+				logPreference.setEnabled(true);
+				setLogStatus(true);
+			}
+			else
+			{
+				logPreference.setEnabled(false);
+				setLogStatus(false);
+			}
+			
+			return true;
 		}
 		
 		return false;
@@ -236,7 +257,7 @@ public class Activity_Main extends PreferenceActivity implements OnPreferenceCha
 				return true;
 			}
 		}
-		
+			
 		return false;
 	}
 	
@@ -260,7 +281,7 @@ public class Activity_Main extends PreferenceActivity implements OnPreferenceCha
 		{
 			menu.getItem(MENU_ITEM_MESSAGES).setEnabled(true);
 			
-			if(getFilterStatus() == FILTER_MENU_CONTACTS)
+			if(getFilterStatus() == FILTER_MENU_CONTACTS || getFilterStatus() == FILTER_MENU_OFF)
 				menu.getItem(MENU_ITEM_FILTER).setEnabled(false);
 			else
 				menu.getItem(MENU_ITEM_FILTER).setEnabled(true);
@@ -284,7 +305,7 @@ public class Activity_Main extends PreferenceActivity implements OnPreferenceCha
 				switch(getFilterStatus())
 				{
 					case FILTER_MENU_OFF:
-						 showDialog(NONE_DIALOG_ID);
+						 showDialog(FILTERING_DIALOG_ID);
 					break;
 					
 					case FILTER_MENU_CONTACTS:
@@ -293,7 +314,6 @@ public class Activity_Main extends PreferenceActivity implements OnPreferenceCha
 					default:
 						Intent filtering = new Intent(this, Activity_Filtering.class);
 						filtering.putExtra("extraFilterStatus", getFilterStatus());
-						filtering.putExtra("extraServiceStatus", getServiceStatus());
 						
 						startActivity(filtering);
 					break;
@@ -435,7 +455,7 @@ public class Activity_Main extends PreferenceActivity implements OnPreferenceCha
 
     			dialog = builder.create();
     			break;
-    		case NONE_DIALOG_ID:
+    		case FILTERING_DIALOG_ID:
     			builder.setTitle(r.getString(R.string.prompt_filtering_title))
     			.setNegativeButton(r.getString(R.string.menu_close), new DialogInterface.OnClickListener()
     			{
@@ -773,7 +793,8 @@ public class Activity_Main extends PreferenceActivity implements OnPreferenceCha
 	public String getMessage() 								{ return prefs.getString(MESSAGE_PREF, r.getString(R.string.default_message_content));		}
 	
 	public int getFilterStatus()							{ return Integer.parseInt(prefs.getString(FILTER_PREF, "0")); 								}
-	public void setFilterStatus(int id)						{ filteringListPref.setValueIndex(id);														}
+	public void setFilterStatus(int id)						{ editor.putString(FILTER_PREF, Integer.toString(id));
+															  editor.commit();																			}
 	
     public int getDelay()									{ return Integer.parseInt(prefs.getString(DELAY_PREF, "0"));								}
 	

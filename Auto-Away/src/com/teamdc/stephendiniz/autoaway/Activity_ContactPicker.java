@@ -25,6 +25,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.teamdc.stephendiniz.autoaway.classes.Contact;
+import com.teamdc.stephendiniz.autoaway.classes.MessageListArrayAdapter;
 import com.teamdc.stephendiniz.autoaway.classes.PhoneContact;
 
 public class Activity_ContactPicker extends ListActivity 
@@ -59,7 +60,7 @@ public class Activity_ContactPicker extends ListActivity
 			getActionBar().setDisplayHomeAsUpEnabled(true);
 		
 		r = getResources();
-		Cursor cursor = getContentResolver().query(Contacts.CONTENT_URI, null, null, null, null);
+		Cursor cursor = getContentResolver().query(ContactsContract.Contacts.CONTENT_URI, null, null, null, null);
 
 		infoBundle = getIntent().getExtras();
 		
@@ -69,15 +70,15 @@ public class Activity_ContactPicker extends ListActivity
 		{
 			case FILTER_BLACKLIST:
 				setFile("filtering_blacklist.txt");
-				setTitle(r.getString(R.string.pref_filter_type_3));
 			break;
 			
 			case FILTER_WHITELIST:
 				setFile("filtering_whitelist.txt");
-				setTitle(r.getString(R.string.pref_filter_type_4));
 			break;
 		}
 
+		setTitle(r.getString(R.string.pref_contacts_title));
+		
 		grabNumbers(getFile());
 
 		ArrayList<String> random = new ArrayList<String>();
@@ -89,7 +90,7 @@ public class Activity_ContactPicker extends ListActivity
 
 			if (num > 0)
 			{
-				PhoneContact newPContact = new PhoneContact(cursor.getString(cursor.getColumnIndexOrThrow(ContactsContract.Contacts.DISPLAY_NAME)), cursor.getString(cursor.getColumnIndexOrThrow(ContactsContract.Contacts._ID)));
+				PhoneContact newPContact = new PhoneContact(cursor.getString(cursor.getColumnIndexOrThrow(ContactsContract.Contacts.DISPLAY_NAME)), null, cursor.getString(cursor.getColumnIndexOrThrow(ContactsContract.Contacts._ID)));
 				pContacts.add(newPContact);
 			}
 			else
@@ -100,10 +101,26 @@ public class Activity_ContactPicker extends ListActivity
 		sortContacts();
 
 		String[] names = new String[pContacts.size()];
+		String[] numbers = new String[pContacts.size()];
 		for (int i = 0; i < pContacts.size(); i++)
+		{
 			names[i] = pContacts.get(i).getName();
+			Cursor phone = getContentResolver().query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI, null, ContactsContract.CommonDataKinds.Phone.CONTACT_ID +" = ?", new String[]{pContacts.get(phoneContactSearch(pContacts, names[i])).getId()}, null);
+			int index = 0;
+			for (phone.moveToFirst(); !phone.isAfterLast(); phone.moveToNext())
+			{
+				if(index > 0)
+				{
+					numbers[i] = r.getString(R.string.pref_contacts_multiple);
+					break;
+				}
+				numbers[i] = hyphenate(phone.getString(phone.getColumnIndexOrThrow(ContactsContract.CommonDataKinds.Phone.NUMBER)));
+				index++;
+			}
+		}
 		
-		this.setListAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, names));
+		MessageListArrayAdapter adapter = new MessageListArrayAdapter(this, names, numbers);
+		setListAdapter(adapter);
 	}
 	
 	@SuppressLint("NewApi")
@@ -166,10 +183,11 @@ public class Activity_ContactPicker extends ListActivity
 				if(pContacts.get(j).getName().compareTo(pContacts.get(j+1).getName()) > 0)
 				{
 					String tmpName = pContacts.get(j).getName();
+					String tmpNumber = pContacts.get(j).getNumber();
 					String tmpId = pContacts.get(j).getId();
 
-					pContacts.get(j).setInfo(pContacts.get(j+1).getName(), pContacts.get(j+1).getId());
-					pContacts.get(j+1).setInfo(tmpName, tmpId);
+					pContacts.get(j).setInfo(pContacts.get(j+1).getName(), pContacts.get(j+1).getNumber(), pContacts.get(j+1).getId());
+					pContacts.get(j+1).setInfo(tmpName, tmpNumber, tmpId);
 				}
 	}
 	
@@ -259,6 +277,7 @@ public class Activity_ContactPicker extends ListActivity
 	
 	public String hyphenate(String number)
 	{
+		number = number.replaceAll("[^\\d]", "");
 		if (number.length() == 10)
 			return number.substring(0,3) + "-" + number.substring(3,6) + "-" + number.substring(6,10);
 		
@@ -304,6 +323,7 @@ public class Activity_ContactPicker extends ListActivity
 	            parentActivityIntent.addFlags(
 	                    Intent.FLAG_ACTIVITY_CLEAR_TOP |
 	                    Intent.FLAG_ACTIVITY_NEW_TASK);
+	            parentActivityIntent.putExtra("extraFilterStatus", getFilterStatus());
 	            startActivity(parentActivityIntent);
 	            finish();
 	        return true;

@@ -587,14 +587,16 @@ public class Service_Away extends Service
 		nManager.notify(NOTIFICATION_ID + 1, notification);
 	}
 	
-	private String hyphenate(String number)
+	public String hyphenate(String number)
 	{
+		number = number.replaceAll("[^\\d]", "");
 		if (number.length() == 10)
 			return number.substring(0,3) + "-" + number.substring(3,6) + "-" + number.substring(6,10);
 		
 		if (number.length() == 11)
 			return number.substring(0,1) + "-" + number.substring(1,4) + "-" + number.substring(4,7) + "-" + number.substring(7,11);
-
+		
+		//Not 10 digits long - Unable to hyphenate
 		return number;
 	}
 	
