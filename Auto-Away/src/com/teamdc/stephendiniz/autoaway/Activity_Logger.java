@@ -14,9 +14,11 @@ import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.app.ListActivity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Environment;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.ContextMenu;
@@ -49,10 +51,23 @@ public class Activity_Logger extends ListActivity
 	
 	ArrayList<LogEntry> entries = new ArrayList<LogEntry>();
 	String[] names;
+	SharedPreferences prefs;
+	
+	final String THEME_PREF		= "themePreference";
 	
 	@SuppressLint("NewApi")
 	public void onCreate(Bundle savedInstanceState)
 	{
+		prefs = PreferenceManager.getDefaultSharedPreferences(this);
+
+		if(android.os.Build.VERSION.SDK_INT >= 14)
+		{
+			if(prefs.getString(THEME_PREF, "LIGHT").equals("LIGHT"))
+				setTheme(R.style.HoloLight);
+			else
+				setTheme(R.style.HoloDark);
+		}
+	
 		super.onCreate(savedInstanceState);
 
 		if (android.os.Build.VERSION.SDK_INT >= 11)
@@ -362,6 +377,7 @@ public class Activity_Logger extends ListActivity
 	  return true;
 	}
 	
+	@SuppressLint("NewApi")
 	@Override
 	public void onListItemClick(ListView l, View v, int position, long id)
 	{
@@ -455,14 +471,20 @@ public class Activity_Logger extends ListActivity
 		
 		tRNumber.addView(lNumber);
 		tRNumber.addView(number);
-		tRNumber.setBackgroundColor(Color.DKGRAY);
+		if(android.os.Build.VERSION.SDK_INT >= 14)
+			tRNumber.setBackgroundColor((prefs.getString(THEME_PREF, "DARK").equals("DARK"))?Color.DKGRAY:Color.LTGRAY);
+		else
+			tRNumber.setBackgroundColor(Color.DKGRAY);
 		
 		tRDate.addView(lDate);
 		tRDate.addView(date);
 		
 		tRTime.addView(lTime);
 		tRTime.addView(time);
-		tRTime.setBackgroundColor(Color.DKGRAY);
+		if(android.os.Build.VERSION.SDK_INT >= 14)
+			tRTime.setBackgroundColor((prefs.getString(THEME_PREF, "DARK").equals("DARK"))?Color.DKGRAY:Color.LTGRAY);
+		else
+			tRTime.setBackgroundColor(Color.DKGRAY);
 
 		tRType.addView(lType);
 		tRType.addView(type);

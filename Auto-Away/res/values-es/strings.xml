@@ -2,7 +2,7 @@
 <resources>
     <!-- Application Strings -->
 	<string name="app_name">Auto-Away</string>
-	<string name="app_version">1.2.3</string>
+	<string name="app_version">1.2.8</string>
     
 	<!-- Activity Titles -->
 	<string name="activity_log_title">Respuesta de Archivo</string>
@@ -100,8 +100,11 @@
 	<string name="menu_yes">Sí</string>
 	
 	<string name="menu_main_messages">Editar Mensajes de Ausencia</string>
+	<string name="menu_messages_alphabetize">Alfabetizar Mensajes</string>
 	<string name="menu_main_filtering">Filtrado de Destinatarios</string>
 	<string name="menu_main_scheduling">Lejos de Programación</string>
+	<string name="menu_main_theme_light">Cambiar el Tema Luz</string>
+	<string name="menu_main_theme_dark">Cambie al Tema Oscuro</string>
 	
 	<string name="menu_messages_add">Añadir Mensajes de Ausencia</string>
 	<string name="menu_filter_addFromContacts">Añadir de las Contactos</string>
@@ -150,6 +153,8 @@
 	<string name="prompt_filter_add">Por favor, elija un filtro</string>
 	
 	<string name="prompt_added">Agregado con éxito!</string>
+	
+	<string name="prompt_messages_alphabetized">Mensajes ordenados alfabéticamente correctamente!</string>
 	
 	<string name="prompt_export_noLogs">No hay archivos para exportar!</string>
 	<string name="prompt_export_success">Exportado con éxito a:</string>

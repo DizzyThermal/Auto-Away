@@ -2,7 +2,7 @@
 <resources>
 	<!-- Application Strings -->
 	<string name="app_name">Auto-Away</string>
-	<string name="app_version">1.2.3</string>
+	<string name="app_version">1.2.8</string>
     
 	<!-- Activity Titles -->
 	<string name="activity_log_title">Journal des Réponses</string>
@@ -102,8 +102,11 @@
 	<string name="menu_main_messages">Editer les Messages d\'absence</string>
 	<string name="menu_main_filtering">Filtrage des Destinataires</string>
 	<string name="menu_main_scheduling">Loin de Planification</string>
+	<string name="menu_main_theme_light">Changer pour Light Theme</string>
+	<string name="menu_main_theme_dark">Changer de Dark Theme</string>
 
 	<string name="menu_messages_add">Ajouter un Message d\'absence</string>
+	<string name="menu_messages_alphabetize">Alphabétiser Messages</string>
 	<string name="menu_filter_addFromContacts">Ajouter depuis les Contacts</string>
 	<string name="menu_filter_addCustom">Ajouter un numéro</string>
 	<string name="menu_schedules_add">Ajouter Programmer</string>
@@ -148,6 +151,8 @@
 	<string name="prompt_filter_title_number">Numéro</string>
 	
 	<string name="prompt_filter_add">S\'il vous pla\ît choisir un filtre</string>
+	
+	<string name="prompt_messages_alphabetized">Messages classés par ordre alphabétique avec succès!</string>
 	
 	<string name="prompt_added">Ajouté avec succès!</string>
 	

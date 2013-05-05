@@ -12,8 +12,10 @@ import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.app.ListActivity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
@@ -42,6 +44,7 @@ public class Activity_Messages extends ListActivity
 	
 	Resources r;
 	Dialog dialog;
+	SharedPreferences prefs;
 
 	static final int MESSAGE_ERROR_EXISTS	= 0;
 	static final int MESSAGE_ERROR_BLANK	= 1;
@@ -51,9 +54,21 @@ public class Activity_Messages extends ListActivity
 	static final int CONTEXT_MENU_EDIT		= 0;
 	static final int CONTEXT_MENU_REMOVE	= 1;
 	
+	final String THEME_PREF		= "themePreference";
+	
 	@SuppressLint("NewApi")
 	public void onCreate(Bundle savedInstanceState)
 	{
+		prefs = PreferenceManager.getDefaultSharedPreferences(this);
+
+		if(android.os.Build.VERSION.SDK_INT >= 14)
+		{
+			if(prefs.getString(THEME_PREF, "LIGHT").equals("LIGHT"))
+				setTheme(R.style.HoloLight);
+			else
+				setTheme(R.style.HoloDark);
+		}
+
 		super.onCreate(savedInstanceState);
 		
 		if (android.os.Build.VERSION.SDK_INT >= 11)
@@ -139,7 +154,17 @@ public class Activity_Messages extends ListActivity
 				});
 				
 				dialog.show();
-			break;
+			return true;
+			case R.id.menu_messages_alphabetize:
+				alphabetize();
+				saveMessages(messagesFile);
+				
+				Toast alphabetizedToast = Toast.makeText(this, r.getString(R.string.prompt_messages_alphabetized), Toast.LENGTH_LONG);
+				alphabetizedToast.show();
+				
+				finish();
+				startActivity(getIntent());
+			return true;
 			case android.R.id.home:
 	            Intent parentActivityIntent = new Intent(this, Activity_Main.class);
 	            parentActivityIntent.addFlags(
@@ -341,5 +366,19 @@ public class Activity_Messages extends ListActivity
 		}
 
 		return exists;
+	}
+	
+	public void alphabetize()
+	{
+		for (int i = 0; i < messages.size(); i++)
+			for (int j = 0; j < messages.size()-1-i; j++)
+				if(messages.get(j).getTitle().compareTo(messages.get(j+1).getTitle()) > 0)
+				{
+					String tmpTitle = messages.get(j).getTitle();
+					String tmpContent = messages.get(j).getContent();
+
+					messages.get(j).setInfo(messages.get(j+1).getTitle(), messages.get(j+1).getContent());
+					messages.get(j+1).setInfo(tmpTitle, tmpContent);
+				}
 	}
 }

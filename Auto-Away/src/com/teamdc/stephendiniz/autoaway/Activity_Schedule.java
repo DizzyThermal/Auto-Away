@@ -6,8 +6,10 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -33,6 +35,10 @@ public class Activity_Schedule extends Activity
 	
 	Resources r;
 	Dialog dialog;
+	
+	SharedPreferences prefs;
+	
+	final String THEME_PREF		= "themePreference";
 
 	//static final int MESSAGE_ERROR_EXISTS	= 0;
 	//static final int MESSAGE_ERROR_BLANK	= 1;
@@ -45,6 +51,16 @@ public class Activity_Schedule extends Activity
 	@SuppressLint("NewApi")
 	public void onCreate(Bundle savedInstanceState)
 	{
+		prefs = PreferenceManager.getDefaultSharedPreferences(this);
+
+		if(android.os.Build.VERSION.SDK_INT >= 14)
+		{
+			if(prefs.getString(THEME_PREF, "LIGHT").equals("LIGHT"))
+				setTheme(R.style.HoloLight);
+			else
+				setTheme(R.style.HoloDark);
+		}
+
 		super.onCreate(savedInstanceState);
 		
 		if (android.os.Build.VERSION.SDK_INT >= 11)

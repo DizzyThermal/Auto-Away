@@ -12,9 +12,11 @@ import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.app.ListActivity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.provider.Contacts;
 import android.provider.ContactsContract;
 import android.util.Log;
@@ -36,6 +38,10 @@ public class Activity_ContactPicker extends ListActivity
 	Dialog dialog;
 	private Bundle infoBundle;
 
+	SharedPreferences prefs;
+	
+	final String THEME_PREF		= "themePreference";
+	
 	private final int FILTER_BLACKLIST = 2;
 	private final int FILTER_WHITELIST = 3;
 
@@ -54,6 +60,16 @@ public class Activity_ContactPicker extends ListActivity
 	@SuppressLint("NewApi")
 	public void onCreate(Bundle SavedInstanceState)
 	{
+		prefs = PreferenceManager.getDefaultSharedPreferences(this);
+
+		if(android.os.Build.VERSION.SDK_INT >= 14)
+		{
+			if(prefs.getString(THEME_PREF, "LIGHT").equals("LIGHT"))
+				setTheme(R.style.HoloLight);
+			else
+				setTheme(R.style.HoloDark);
+		}
+		
 		super.onCreate(SavedInstanceState);
 
 		if (android.os.Build.VERSION.SDK_INT >= 11)

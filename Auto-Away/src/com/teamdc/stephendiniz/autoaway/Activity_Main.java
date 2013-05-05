@@ -10,6 +10,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
@@ -68,6 +69,8 @@ public class Activity_Main extends PreferenceActivity implements OnPreferenceCha
 	final String ABOUT_PREF		= "aboutPreference";
 	
 	final String BUCHECK_PREF	= "bUCheckPreference";
+	
+	final String THEME_PREF		= "themePreference";
 
 	CheckBoxPreference 	serviceCheckBox;
 	CheckBoxPreference 	silentCheckBox;
@@ -106,6 +109,7 @@ public class Activity_Main extends PreferenceActivity implements OnPreferenceCha
 	static final int MENU_ITEM_MESSAGES	= 0;
 	static final int MENU_ITEM_FILTER	= 1;
 	static final int MENU_ITEM_SCHEDULE	= 2;
+	static final int MENU_ITEM_THEME	= 3;
 	
 	static final int CALLTEXT_BOTH	= 0;
 	static final int CALLTEXT_CALL	= 1;
@@ -113,9 +117,22 @@ public class Activity_Main extends PreferenceActivity implements OnPreferenceCha
 
 	private ArrayList<Message> messages = new ArrayList<Message>();
 
+	@SuppressLint("NewApi")
 	public void onCreate (Bundle savedInstanceState)
 	{
+		prefs = PreferenceManager.getDefaultSharedPreferences(this);
+		editor = prefs.edit();
+
+		if(android.os.Build.VERSION.SDK_INT >= 14)
+		{
+			if(prefs.getString(THEME_PREF, "LIGHT").equals("LIGHT"))
+				setTheme(R.style.HoloLight);
+			else
+				setTheme(R.style.HoloDark);
+		}
+
 		super.onCreate(savedInstanceState);
+
 		addPreferencesFromResource(R.xml.preferences);
 
 		// Create XML to Android Object Binds and register Change/Click Listeners
@@ -150,20 +167,18 @@ public class Activity_Main extends PreferenceActivity implements OnPreferenceCha
 		createListPreferences(false);
 	}
 	
+	@SuppressLint("NewApi")
 	public void onResume()
 	{
 		super.onResume();
-
-		prefs = PreferenceManager.getDefaultSharedPreferences(this);
-		editor = prefs.edit();
-
+		
 		editor.putBoolean(BUCHECK_PREF, checkForBackups());
 		editor.commit();
 
 		if(getServiceStatus())
 			setPreferenceStatus(false);	// Disable Preference Changing if Service is Running
 
-		logPreference.setEnabled(prefs.getBoolean(LOG_PREF, true));
+		logPreference.setEnabled(getLogStatus());
 		aboutPreference.setSummary(" v" + r.getString(R.string.app_version));
 		
 		if(!prefs.getBoolean(BUCHECK_PREF, false))
@@ -177,14 +192,9 @@ public class Activity_Main extends PreferenceActivity implements OnPreferenceCha
 	{
 		if(p.getKey().equals(LOG_ACT_PREF))
 		{
-			if(getLogStatus())
-			{
-				Intent log = new Intent(this, Activity_Logger.class);
-				startActivity(log);
-			}
-			else
-				showDialog(LOG_DIALOG_ID);
-				
+			Intent log = new Intent(this, Activity_Logger.class);
+			startActivity(log);
+
 			return true;
 		}
 		else if(p.getKey().equals(BACKUP_PREF))
@@ -261,10 +271,21 @@ public class Activity_Main extends PreferenceActivity implements OnPreferenceCha
 		return false;
 	}
 	
+	@SuppressLint("NewApi")
 	public boolean onCreateOptionsMenu(Menu menu)
 	{
 		MenuInflater inflater = getMenuInflater();
 		inflater.inflate(R.menu.menu_main, menu);
+
+		if(android.os.Build.VERSION.SDK_INT >= 14)
+		{
+			if(prefs.getString(THEME_PREF, "LIGHT").equals("LIGHT"))
+				menu.findItem(R.id.menu_theme).setTitle(r.getString(R.string.menu_main_theme_dark));
+			else
+				menu.findItem(R.id.menu_theme).setTitle(r.getString(R.string.menu_main_theme_light));
+		}
+		else
+			menu.removeItem(R.id.menu_theme);
 		
 		return true;
 	}
@@ -323,6 +344,15 @@ public class Activity_Main extends PreferenceActivity implements OnPreferenceCha
 			//	Intent schedule = new Intent(this, Activity_Schedule.class);
 			//	startActivity(schedule);
 			//break;
+			case R.id.menu_theme:
+				if(prefs.getString(THEME_PREF, "LIGHT").equals("LIGHT"))
+					editor.putString(THEME_PREF, "DARK");
+				else
+					editor.putString(THEME_PREF, "LIGHT");
+
+				editor.commit();
+				finish();startActivity(getIntent());
+			break;
 		}
 		
 		return true;
@@ -513,6 +543,7 @@ public class Activity_Main extends PreferenceActivity implements OnPreferenceCha
 			oWriter.append(new Boolean(prefs.getBoolean(INFORM_PREF, true)).toString() + "\n");
 			oWriter.append(Integer.toString(getDelay()) + "\n");
 			oWriter.append(new Boolean(prefs.getBoolean(REPEAT_PREF, false)).toString() + "\n");
+			oWriter.append(prefs.getString(THEME_PREF, "LIGHT") + "\n");
 			
 			oWriter.flush();
 			oWriter.close();
@@ -659,6 +690,7 @@ public class Activity_Main extends PreferenceActivity implements OnPreferenceCha
 			editor.putBoolean(INFORM_PREF, Boolean.parseBoolean(bReader.readLine()));
 			editor.putString(DELAY_PREF, bReader.readLine());
 			editor.putBoolean(REPEAT_PREF, Boolean.parseBoolean(bReader.readLine()));
+			editor.putString(THEME_PREF, bReader.readLine());
 			editor.commit();
 			
 			iReader.close();

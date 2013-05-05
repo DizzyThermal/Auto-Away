@@ -5,4 +5,8 @@
     	android:id="@+id/menu_messages_add"
     	android:title="@string/menu_messages_add" />
 
+    <item
+    	android:id="@+id/menu_messages_alphabetize"
+    	android:title="@string/menu_messages_alphabetize" />
+    
 </menu>

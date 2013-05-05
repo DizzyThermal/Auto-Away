@@ -12,8 +12,10 @@ import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.app.ListActivity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
@@ -46,6 +48,10 @@ public class Activity_Filtering extends ListActivity
 	Dialog dialog;
 	private Bundle infoBundle;
 	private Boolean isRunning = false;
+	
+	SharedPreferences prefs;
+	
+	final String THEME_PREF		= "themePreference";
 
 	private final int FILTER_BLACKLIST = 2;
 	private final int FILTER_WHITELIST = 3;
@@ -62,6 +68,16 @@ public class Activity_Filtering extends ListActivity
 	@SuppressLint("NewApi")
 	public void onCreate(Bundle savedInstanceState)
 	{
+		prefs = PreferenceManager.getDefaultSharedPreferences(this);
+
+		if(android.os.Build.VERSION.SDK_INT >= 14)
+		{
+			if(prefs.getString(THEME_PREF, "LIGHT").equals("LIGHT"))
+				setTheme(R.style.HoloLight);
+			else
+				setTheme(R.style.HoloDark);
+		}
+		
 		super.onCreate(savedInstanceState);
 
 		if (android.os.Build.VERSION.SDK_INT >= 11)

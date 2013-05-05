@@ -12,5 +12,9 @@
 	<!-- <item
 	    android:id="@+id/menu_scheduling"
 	    android:title="@string/menu_main_scheduling" /> -->
+	    
+	<item
+    	android:id="@+id/menu_theme"
+    	android:title="@string/menu_main_theme_light" />
 
 </menu>
