@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="HoloLight" parent="@android:style/Theme.DeviceDefault.Light" />
+    <style name="HoloDark" parent="@android:style/Theme.DeviceDefault" />
+</resources>
