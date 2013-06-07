@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<!-- Application Strings -->
+	<string name="app_name">Auto-Away</string>
+	<string name="app_version">1.3.0</string>
+
+	<!-- Activity Titles -->
+	<string name="activity_log_title">Dziennik odpowiedzi</string>
+	<string name="activity_messages_title">	Wiadomości</string>
+	<string name="activity_blacklist_title">Czarna lista</string>
+	<string name="activity_whitelist_title">Biała lista</string>
+	<string name="activity_scheduling_title">Planowanie</string>
+
+	<!-- Preference Categories -->
+	<string name="pref_category_general">Ustawienia ogólne</string>
+	<string name="pref_category_logging">Ustawienia dziennika</string>
+	<string name="pref_category_response">Ustawienia odpowiedzi</string>
+	<string name="pref_category_backupAndRestore">Kopia zapasowa i przywracanie</string>
+	<string name="pref_category_about">O programie</string>
+
+	 <!-- Service -->
+	<string name="pref_service_title">Włącz Auto-Away</string>
+	<string name="pref_service_summary">Uruchamia usługę Auto-Away</string>
+
+	<!-- Silent -->
+	<string name="pref_silent_title">Uruchomienie w tle</string>
+	<string name="pref_silent_summary">Wycisza wszystkie dźwięki oprócz mediów i alarmów</string>
+
+	<!--  Call/Text Preference -->
+	<string name="pref_call_text_title">Autoodpowiedź</string>
+	<string name="pref_call_text_summary">Wybierz sposób autoodpowiedzi zależnie od typu połączeń</string>
+	<string name="pref_call_text_type_1">Połączenia głosowe i SMS</string>
+	<string name="pref_call_text_type_2">Połączenia głosowe</string>
+	<string name="pref_call_text_type_3">SMS</string>
+
+	<!-- Log Responses -->
+	<string name="pref_log_title">Dziennik odpowiedzi</string>
+	<string name="pref_log_summary">Zapisuj odbiorców i czas autoodpowiedzi</string>
+
+	<string name="pref_log_activity_title">Zobacz dziennik</string>
+
+	<!-- Message Select -->
+	<string name="pref_message_title">Wiadomości</string> 
+	<string name="pref_message_summary">Wybierz, która wiadomość ma zostać wysłana.\nNaciśnij MENU, aby edytować</string>
+
+	<!-- Filtering -->
+	<string name="pref_filtering_title">Filtrowanie odbiorców</string>
+	<string name="pref_filtering_summary">Czarna lista zablokuje wymienione numery z autoodpowiedzi.\nBiała lista zezwoli tylko wymienionym numerom dla autoodpowiedzi.</string>
+
+	<string name="pref_filter_type_1">Brak</string>
+	<string name="pref_filter_type_2">Tylko kontakty</string>
+	<string name="pref_filter_type_3">Czarna lista</string>
+	<string name="pref_filter_type_4">Biała lista</string>
+
+	<string name="pref_contacts_title">Kontakty</string>
+	<string name="pref_contacts_multiple">Wiele numerów</string>
+
+	<!-- Inform -->
+	<string name="pref_inform_title">Poinformuj odbiorcę</string>
+	<string name="pref_inform_summary">Dodaj nagłówek \'[Auto-Away]:\' przed swoją wiadomością</string>
+
+	<!-- Response Delay -->
+	<string name="pref_delay_title">Opóźnienie odpowiedzi</string>
+	<string name="pref_delay_summary">Czas opóźnienia dla autoodpowiedzi</string>
+
+	<string name="pref_delay_type_1">Brak</string>
+	<string name="pref_delay_type_2">15 sekund</string>
+	<string name="pref_delay_type_3">30 sekund</string>
+	<string name="pref_delay_type_4">1 minuta</string>
+	<string name="pref_delay_type_5">2 minuty</string>
+	<string name="pref_delay_type_6">5 minut</string>
+
+	<!-- Repeat -->
+	<string name="pref_repeat_title">Powtórz odpowiedzi</string>
+	<string name="pref_repeat_summary">Powtarzaj wiadomość wielokrotnie do tego samego odbiorcy</string>
+
+	<!-- Backup -->
+	<string name="pref_backup_title">Kopia zapasowa</string>
+	<string name="pref_backup_summary">Zapisuje ustawienia, wiadomości i filtry na kartę SD</string>
+
+	<!-- Restore -->
+	<string name="pref_restore_title">Przywracanie</string>
+	<string name="pref_restore_summary">Przywraca dane z kopii zapasowej zapisanej na karcie SD</string>
+
+	<!-- About -->
+	<string name="pref_about_title">Auto-Away</string>
+
+	<!-- Menu Options -->
+	<string name="menu_add">Dodaj</string>
+	<string name="menu_addToFilter">Dodaj do filtru</string>
+	<string name="menu_cancel">Anuluj</string>
+	<string name="menu_clear">Wyczyść</string>
+	<string name="menu_close">Zamknij</string>
+	<string name="menu_edit">Edytuj</string>
+	<string name="menu_export">Wyeksportuj do Excel\'a</string>
+	<string name="menu_no">Nie</string>
+	<string name="menu_remove">Usuń</string>
+	<string name="menu_remove_all">Usuń wszystko</string>
+	<string name="menu_save">Zapisz</string>
+	<string name="menu_yes">Tak</string>
+
+	<string name="menu_main_messages">Edytuj wiadomość</string>
+	<string name="menu_main_filtering">Filtrowanie odbiorców</string>
+	<string name="menu_main_scheduling">Planowanie</string>
+	<string name="menu_main_theme_light">Zmień na motyw Light</string>
+	<string name="menu_main_theme_dark">Zmień na motyw Dark</string>
+
+	<string name="menu_messages_add">Dodaj wiadomość</string>
+	<string name="menu_messages_alphabetize">Sortuj alfabetycznie</string>
+	<string name="menu_filter_addFromContacts">Dodaj z kontaktów</string>
+	<string name="menu_filter_addCustom">Dodaj numer</string>
+	<string name="menu_schedules_add">Dodaj do zaplanowanych</string>
+
+	<!-- Prompts -->
+	<string name="prompt_log_title">Logowanie jest wyłączone!</string>
+	<string name="prompt_log_content">Czy odblokować logowanie?</string>
+
+	<string name="prompt_log_dialog_name">Nazwa:</string>
+	<string name="prompt_log_dialog_number">Numer:</string>
+	<string name="prompt_log_dialog_date">Data:</string>
+	<string name="prompt_log_dialog_time">Czas:</string>
+	<string name="prompt_log_dialog_type">Typ:</string>
+
+	<string name="prompt_log_dialog_type_call">Rozmowa telefoniczna</string>
+	<string name="prompt_log_dialog_type_text">Wiadomość SMS</string>
+
+	<string name="prompt_message_title">Nowa wiadomość</string>
+	<string name="prompt_message_title_title">Tytuł</string>
+	<string name="prompt_message_title_content">Wiadomość</string>
+
+	<string name="prompt_message_saved">zapisano z powodzeniem!</string>
+
+	<string name="prompt_filtering_title">Filtrowanie odbiorców jest wyłączone!</string>
+	<string name="prompt_filtering_empty">Ostrzeżenie: filtrowanie jest włączone, ale list jest pusta!</string>
+
+	<string name="prompt_error_message_exists">Wiadomość o tym tytule już istnieje!</string>
+	<string name="prompt_error_message_blank">Pola tytuł i wiadomość muszą być uzupełnione!</string>
+	<string name="prompt_error_filter_number">Kontakt nie ma przypisanego numeru telefonu.</string>
+	<string name="prompt_error_filter_exists">Kontakt już istnieje na liście.</string>
+	<string name="prompt_error_filter_blank">Pola nazwa i numer muszą być uzupełnione!</string>
+	<string name="prompt_error_filter_present">jest już na</string>
+	<string name="prompt_error_sdcard_mounted">Karta SD jest zamontowana i niedostępna</string>
+	<string name="prompt_error_sdcard_readOnly">Karta SD Card jest w trybie \'tylko do odczytu\', brak możliwości zapisu</string>
+	<string name="prompt_error_sdcard_restore">Obecnie brak kopii do przywrócenia</string>
+
+	<string name="prompt_sdcard_backup_successful">Dane aklikacji skopiowano pomyślnie!</string>
+	<string name="prompt_sdcard_restore_successful">Dane aplikacji przywrócono pomyślnie!</string>
+
+	<string name="prompt_filter_title">Nowy kontakt</string>
+	<string name="prompt_filter_title_name">Nazwa</string>
+	<string name="prompt_filter_title_number">Numer</string>
+
+	<string name="prompt_filter_add">Wybierz filtr</string>
+
+	<string name="prompt_added">Dodano pomyślnie!</string>
+
+	<string name="prompt_messages_alphabetized">Wiadomości posortowane alfabetycznie!</string>
+
+	<string name="prompt_export_noLogs">Brak dzienników do wyeksportowania!</string>
+	<string name="prompt_export_success">Wyeksportowano do:</string>
+
+	<!-- Miscellaneous -->
+	<string name="default_message_title">Domyślna wiadomość</string>
+	<string name="default_message_content">Jestem zajęty, odezwę się później.</string>
+
+	<string name="notification_ticker_start">Auto-Away teraz działa</string>
+	<string name="notification_ticker_replied">Auto odpowiedź dla</string>
+	<string name="notification_content">Auto-Away jest uruchomiony</string>
+
+	<string name="error_no_service">Nie udało się wysłać autoodpowidzi z uwagi na brak obsługi!</string>
+	<string name="error_radio_off">Nie udało się wysłać autoodpowiedzi z uwagi wyłączony telefon odbiorcy!</string>
+</resources>
